@@ -1,7 +1,6 @@
 """
 Custom Robot Framework Library untuk Scheduling
 Menggunakan library bawaan Python saja (tanpa dependency eksternal)
-Letakkan file ini di folder yang sama dengan file .robot
 """
 
 import time

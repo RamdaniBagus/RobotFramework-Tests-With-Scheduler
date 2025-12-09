@@ -10,7 +10,7 @@ ${PASSWORD}       secret_sauce
 ${TIMEOUT}        10
 ${SEPARATOR}      ==============================================================
 
-*** Comment ***
+*** Comments ***
 Check Website Availability
     [Documentation]    Test untuk mengecek apakah website dapat diakses
     [Tags]    smoke

@@ -1,154 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.0 on win32)" generated="2025-12-09T17:23:25.982157" rpa="false" schemaversion="5">
-<suite id="s1" name="My Project" source="C:\QA\My_Project">
-<suite id="s1-s1" name="Test Scheduled" source="C:\QA\My_Project\test_scheduled.robot">
-<test id="s1-s1-t1" name="Login Test" line="44">
+<robot generator="Robot 7.3.2 (Python 3.11.0 on win32)" generated="2025-12-09T17:43:19.562143" rpa="false" schemaversion="5">
+<suite id="s1" name="Scheduled_Test_20251209_174318" source="C:\QA\My_Project\test_scheduled.robot">
+<test id="s1-t1" name="Login Test" line="44">
 <kw name="Get Current Date" owner="DateTime">
-<msg time="2025-12-09T17:23:26.235465" level="INFO">${CURRENT_TIME} = 2025-12-09 17:23:26</msg>
+<msg time="2025-12-09T17:43:20.018885" level="INFO">${CURRENT_TIME} = 2025-12-09 17:43:20</msg>
 <var>${CURRENT_TIME}</var>
 <arg>result_format=%Y-%m-%d %H:%M:%S</arg>
 <doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-12-09T17:23:26.235465" elapsed="0.000000"/>
+<status status="PASS" start="2025-12-09T17:43:20.017887" elapsed="0.000998"/>
 </kw>
 <try>
 <branch type="TRY">
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${\n}Starting login test...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:23:26.235465" elapsed="0.000000"/>
+<status status="PASS" start="2025-12-09T17:43:20.020880" elapsed="0.000998"/>
 </kw>
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-12-09T17:23:26.251052" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com'.</msg>
+<msg time="2025-12-09T17:43:20.023875" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com'.</msg>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-12-09T17:23:26.251052" elapsed="13.984338"/>
+<status status="PASS" start="2025-12-09T17:43:20.022877" elapsed="1.987181"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-12-09T17:23:40.235390" elapsed="0.027987"/>
+<status status="PASS" start="2025-12-09T17:43:22.011055" elapsed="0.044881"/>
 </kw>
 <kw name="Set Selenium Speed" owner="SeleniumLibrary">
 <arg>0.5 seconds</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-12-09T17:23:40.263377" elapsed="0.000000"/>
+<status status="PASS" start="2025-12-09T17:43:22.056933" elapsed="0.000000"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Browser opened</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:23:40.263377" elapsed="0.000000"/>
+<status status="PASS" start="2025-12-09T17:43:22.057930" elapsed="0.000997"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Entering credentials...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:23:40.263377" elapsed="0.000000"/>
+<status status="PASS" start="2025-12-09T17:43:22.058927" elapsed="0.001244"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-09T17:23:40.263377" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
+<msg time="2025-12-09T17:43:22.061209" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
 <arg>id:user-name</arg>
 <arg>${USERNAME}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-09T17:23:40.263377" elapsed="1.673991"/>
+<status status="PASS" start="2025-12-09T17:43:22.060171" elapsed="1.651409"/>
 </kw>
 <kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-09T17:23:41.937368" level="INFO">Typing text 'secret_sauce' into text field 'id:password'.</msg>
+<msg time="2025-12-09T17:43:23.713575" level="INFO">Typing text 'secret_sauce' into text field 'id:password'.</msg>
 <arg>id:password</arg>
 <arg>${PASSWORD}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-09T17:23:41.937368" elapsed="1.583951"/>
+<status status="PASS" start="2025-12-09T17:43:23.712578" elapsed="1.630531"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Credentials entered</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:23:43.521319" elapsed="0.000000"/>
+<status status="PASS" start="2025-12-09T17:43:25.345101" elapsed="0.002176"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Clicking login button...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:23:43.521319" elapsed="0.000000"/>
+<status status="PASS" start="2025-12-09T17:43:25.349324" elapsed="0.002956"/>
 </kw>
 <kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-12-09T17:23:43.521319" level="INFO">Clicking button 'id:login-button'.</msg>
+<msg time="2025-12-09T17:43:25.356263" level="INFO">Clicking button 'id:login-button'.</msg>
 <arg>id:login-button</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-09T17:23:43.521319" elapsed="1.610982"/>
+<status status="PASS" start="2025-12-09T17:43:25.354269" elapsed="1.640645"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>Waiting for products page...</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:23:45.132301" elapsed="0.000000"/>
+<status status="PASS" start="2025-12-09T17:43:26.996978" elapsed="0.001943"/>
 </kw>
 <kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
 <arg>class:inventory_list</arg>
 <arg>timeout=${TIMEOUT}</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-12-09T17:23:45.132301" elapsed="0.527405"/>
+<status status="PASS" start="2025-12-09T17:43:26.999954" elapsed="0.517051"/>
 </kw>
 <kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-12-09T17:23:46.182412" level="INFO">Current page contains element 'class:inventory_list'.</msg>
+<msg time="2025-12-09T17:43:28.041287" level="INFO">Current page contains element 'class:inventory_list'.</msg>
 <arg>class:inventory_list</arg>
 <doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-12-09T17:23:45.659706" elapsed="0.522706"/>
+<status status="PASS" start="2025-12-09T17:43:27.518846" elapsed="0.523491"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>✓ Login successful</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:23:46.182412" elapsed="0.000000"/>
+<status status="PASS" start="2025-12-09T17:43:28.043332" elapsed="0.001958"/>
 </kw>
 <kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-12-09T17:23:46.724193" level="INFO">Current page contains element 'class:inventory_item'.</msg>
+<msg time="2025-12-09T17:43:28.585962" level="INFO">Current page contains element 'class:inventory_item'.</msg>
 <arg>class:inventory_item</arg>
 <doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-12-09T17:23:46.182412" elapsed="0.541781"/>
+<status status="PASS" start="2025-12-09T17:43:28.047329" elapsed="0.538633"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>✓ Products are visible</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:23:46.724193" elapsed="0.000000"/>
+<status status="PASS" start="2025-12-09T17:43:28.585962" elapsed="0.001226"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-12-09T17:23:46.724193" elapsed="2.581520"/>
+<status status="PASS" start="2025-12-09T17:43:28.587188" elapsed="2.584797"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${\n}✓ All tests completed successfully!</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:23:49.306003" elapsed="0.000000"/>
+<status status="PASS" start="2025-12-09T17:43:31.172990" elapsed="0.001047"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${SEPARATOR}${\n}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:23:49.306003" elapsed="0.000000"/>
+<status status="PASS" start="2025-12-09T17:43:31.174983" elapsed="0.000000"/>
 </kw>
-<status status="PASS" start="2025-12-09T17:23:26.235465" elapsed="23.070538"/>
+<status status="PASS" start="2025-12-09T17:43:20.019883" elapsed="11.156099"/>
 </branch>
 <branch type="EXCEPT" assign="${error}">
 <kw name="Log To Console" owner="BuiltIn">
 <arg>✗ Login test failed: ${error}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-12-09T17:23:49.306003" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-12-09T17:43:31.175982" elapsed="0.000000"/>
 </kw>
 <kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <arg>Close Browser</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="NOT RUN" start="2025-12-09T17:23:49.306003" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-12-09T17:43:31.177017" elapsed="0.000000"/>
 </kw>
 <kw name="Fail" owner="BuiltIn">
 <arg>${error}</arg>
 <doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" start="2025-12-09T17:23:49.306003" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-12-09T17:43:31.177017" elapsed="0.000000"/>
 </kw>
-<status status="NOT RUN" start="2025-12-09T17:23:49.306003" elapsed="0.000000"/>
+<status status="NOT RUN" start="2025-12-09T17:43:31.175982" elapsed="0.001035"/>
 </branch>
-<status status="PASS" start="2025-12-09T17:23:26.235465" elapsed="23.070538"/>
+<status status="PASS" start="2025-12-09T17:43:20.019883" elapsed="11.157134"/>
 </try>
 <doc>Test untuk login ke website</doc>
 <tag>login</tag>
-<status status="PASS" start="2025-12-09T17:23:26.235465" elapsed="23.070538"/>
+<status status="PASS" start="2025-12-09T17:43:20.013897" elapsed="11.164342"/>
 </test>
-<status status="PASS" start="2025-12-09T17:23:26.036120" elapsed="23.269883"/>
-</suite>
-<status status="PASS" start="2025-12-09T17:23:26.003814" elapsed="23.319161"/>
+<status status="PASS" start="2025-12-09T17:43:19.566133" elapsed="11.614703"/>
 </suite>
 <statistics>
 <total>
@@ -158,11 +155,9 @@
 <stat pass="1" fail="0" skip="0">login</stat>
 </tag>
 <suite>
-<stat name="My Project" id="s1" pass="1" fail="0" skip="0">My Project</stat>
-<stat name="Test Scheduled" id="s1-s1" pass="1" fail="0" skip="0">My Project.Test Scheduled</stat>
+<stat name="Scheduled_Test_20251209_174318" id="s1" pass="1" fail="0" skip="0">Scheduled_Test_20251209_174318</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-12-09T17:23:25.966532" level="WARN">Error in file 'C:\QA\My_Project\test_scheduled.robot' on line 13: Singular section headers like '*** Comment ***' are deprecated. Use plural format like '*** Comments ***' instead.</msg>
 </errors>
 </robot>
