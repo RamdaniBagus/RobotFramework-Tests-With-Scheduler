@@ -13,10 +13,10 @@ from SchedulerLibrary import SchedulerLibrary
 def main():
     """Main function"""
     # Nama file robot yang akan dijalankan
-    robot_file = "test_scheduled.robot"
+    robot_file = "Scraping.robot"
     
     # Interval dalam menit (ubah sesuai kebutuhan)
-    interval = 5
+    interval = 2
     
     print("\n" + "="*70)
     print("ROBOT FRAMEWORK AUTOMATED SCHEDULER")

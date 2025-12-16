@@ -1,161 +1,3066 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.11.0 on win32)" generated="2025-12-09T17:43:19.562143" rpa="false" schemaversion="5">
-<suite id="s1" name="Scheduled_Test_20251209_174318" source="C:\QA\My_Project\test_scheduled.robot">
-<test id="s1-t1" name="Login Test" line="44">
-<kw name="Get Current Date" owner="DateTime">
-<msg time="2025-12-09T17:43:20.018885" level="INFO">${CURRENT_TIME} = 2025-12-09 17:43:20</msg>
-<var>${CURRENT_TIME}</var>
+<robot generator="Robot 7.3.2 (Python 3.11.0 on win32)" generated="2025-12-16T14:07:05.673051" rpa="true" schemaversion="5">
+<suite id="s1" name="My Project" source="C:\QA\My_Project">
+<suite id="s1-s1" name="Scraping" source="C:\QA\My_Project\Scraping.robot">
+<test id="s1-s1-t1" name="Ambil Harga Emas Pegadaian dan Buat Laporan" line="18">
+<kw name="Get Time" owner="BuiltIn">
+<msg time="2025-12-16T14:07:06.481176" level="INFO">${today} = 2025-12-16 14:07:06</msg>
+<var>${today}</var>
+<arg>result_format=%Y/%m/%d</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="PASS" start="2025-12-16T14:07:06.481176" elapsed="0.000000"/>
+</kw>
+<kw name="Get Time" owner="BuiltIn">
+<msg time="2025-12-16T14:07:06.481176" level="INFO">${today_datetime} = 2025-12-16 14:07:06</msg>
+<var>${today_datetime}</var>
 <arg>result_format=%Y-%m-%d %H:%M:%S</arg>
-<doc>Returns current local or UTC time with an optional increment.</doc>
-<status status="PASS" start="2025-12-09T17:43:20.017887" elapsed="0.000998"/>
+<doc>Returns the given time in the requested format.</doc>
+<status status="PASS" start="2025-12-16T14:07:06.481176" elapsed="0.000000"/>
 </kw>
-<try>
-<branch type="TRY">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${\n}Starting login test...</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:43:20.020880" elapsed="0.000998"/>
+<kw name="Open Available Browser" owner="RPA.Browser.Selenium">
+<msg time="2025-12-16T14:07:07.338410" level="INFO">Webdriver version taken into use: ChromeDriver 142.0.7444.61 (9884f628acbc5ba8787e2c95a8923a30cf127fd8-refs/branch-heads/7444_52@{#6})
+</msg>
+<msg time="2025-12-16T14:07:07.338410" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<msg time="2025-12-16T14:07:08.490295" level="INFO">Created Chrome browser (version 142.0.7444) with arguments: --start-maximized --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox</msg>
+<msg time="2025-12-16T14:07:08.490295" level="INFO" html="true">&lt;p&gt;Attempted combinations:&lt;/p&gt;&lt;div class="doc"&gt;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Browser&lt;/th&gt;&lt;th&gt;Download&lt;/th&gt;&lt;th&gt;Error&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Chrome&lt;/td&gt;&lt;td&gt;False&lt;/td&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;</msg>
+<msg time="2025-12-16T14:07:08.490295" level="INFO">Opening url 'https://www.pegadaian.co.id'</msg>
+<arg>https://www.pegadaian.co.id</arg>
+<arg>maximized=True</arg>
+<doc>Attempts to open a browser on the user's device from a set of
+supported browsers. Automatically downloads a corresponding webdriver
+if none is already installed.</doc>
+<status status="PASS" start="2025-12-16T14:07:06.481176" elapsed="7.355250"/>
 </kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2025-12-09T17:43:20.023875" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com'.</msg>
-<arg>${URL}</arg>
-<arg>${BROWSER}</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2025-12-09T17:43:20.022877" elapsed="1.987181"/>
-</kw>
-<kw name="Maximize Browser Window" owner="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2025-12-09T17:43:22.011055" elapsed="0.044881"/>
-</kw>
-<kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>0.5 seconds</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2025-12-09T17:43:22.056933" elapsed="0.000000"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Browser opened</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:43:22.057930" elapsed="0.000997"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Entering credentials...</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:43:22.058927" elapsed="0.001244"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-09T17:43:22.061209" level="INFO">Typing text 'standard_user' into text field 'id:user-name'.</msg>
-<arg>id:user-name</arg>
-<arg>${USERNAME}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-09T17:43:22.060171" elapsed="1.651409"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2025-12-09T17:43:23.713575" level="INFO">Typing text 'secret_sauce' into text field 'id:password'.</msg>
-<arg>id:password</arg>
-<arg>${PASSWORD}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-09T17:43:23.712578" elapsed="1.630531"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Credentials entered</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:43:25.345101" elapsed="0.002176"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Clicking login button...</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:43:25.349324" elapsed="0.002956"/>
-</kw>
-<kw name="Click Button" owner="SeleniumLibrary">
-<msg time="2025-12-09T17:43:25.356263" level="INFO">Clicking button 'id:login-button'.</msg>
-<arg>id:login-button</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="PASS" start="2025-12-09T17:43:25.354269" elapsed="1.640645"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>Waiting for products page...</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:43:26.996978" elapsed="0.001943"/>
-</kw>
-<kw name="Wait Until Page Contains Element" owner="SeleniumLibrary">
-<arg>class:inventory_list</arg>
-<arg>timeout=${TIMEOUT}</arg>
+<kw name="Wait Until Page Contains Element" owner="RPA.Browser.Selenium">
+<arg>xpath=//h5[contains(., "Harga")]</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" start="2025-12-09T17:43:26.999954" elapsed="0.517051"/>
+<status status="PASS" start="2025-12-16T14:07:13.837422" elapsed="0.011968"/>
 </kw>
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-12-09T17:43:28.041287" level="INFO">Current page contains element 'class:inventory_list'.</msg>
-<arg>class:inventory_list</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-12-09T17:43:27.518846" elapsed="0.523491"/>
+<kw name="Scroll Element Into View" owner="RPA.Browser.Selenium">
+<arg>${harga_beli}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" start="2025-12-16T14:07:13.850387" elapsed="0.319696"/>
 </kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>✓ Login successful</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:43:28.043332" elapsed="0.001958"/>
+<kw name="Get Text" owner="RPA.Browser.Selenium">
+<msg time="2025-12-16T14:07:14.193107" level="INFO">${harga_beli_text} = Rp 23.200,00/ 0,01 gr</msg>
+<var>${harga_beli_text}</var>
+<arg>${harga_beli}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.171084" elapsed="0.022023"/>
 </kw>
-<kw name="Page Should Contain Element" owner="SeleniumLibrary">
-<msg time="2025-12-09T17:43:28.585962" level="INFO">Current page contains element 'class:inventory_item'.</msg>
-<arg>class:inventory_item</arg>
-<doc>Verifies that element ``locator`` is found on the current page.</doc>
-<status status="PASS" start="2025-12-09T17:43:28.047329" elapsed="0.538633"/>
+<kw name="Get Text" owner="RPA.Browser.Selenium">
+<msg time="2025-12-16T14:07:14.215733" level="INFO">${harga_jual_text} = Rp 24.050,00/ 0,01 gr</msg>
+<var>${harga_jual_text}</var>
+<arg>${harga_jual}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.194105" elapsed="0.021628"/>
 </kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>✓ Products are visible</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:43:28.585962" elapsed="0.001226"/>
+<kw name="Extract Numeric Value">
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2025-12-16T14:07:14.218725" level="INFO">${cleaned} = ['23.200,00', '0,01']</msg>
+<var>${cleaned}</var>
+<arg>${text}</arg>
+<arg>([0-9.,]+)</arg>
+<arg>1</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.217728" elapsed="0.000997"/>
 </kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2025-12-09T17:43:28.587188" elapsed="2.584797"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${\n}✓ All tests completed successfully!</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:43:31.172990" elapsed="0.001047"/>
-</kw>
-<kw name="Log To Console" owner="BuiltIn">
-<arg>${SEPARATOR}${\n}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-09T17:43:31.174983" elapsed="0.000000"/>
-</kw>
-<status status="PASS" start="2025-12-09T17:43:20.019883" elapsed="11.156099"/>
+<if>
+<branch type="IF" condition="not ${cleaned}">
+<return>
+<value>${0}</value>
+<status status="NOT RUN" start="2025-12-16T14:07:14.219722" elapsed="0.001007"/>
+</return>
+<status status="NOT RUN" start="2025-12-16T14:07:14.218725" elapsed="0.002004"/>
 </branch>
-<branch type="EXCEPT" assign="${error}">
-<kw name="Log To Console" owner="BuiltIn">
-<arg>✗ Login test failed: ${error}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-12-09T17:43:31.175982" elapsed="0.000000"/>
+<status status="PASS" start="2025-12-16T14:07:14.218725" elapsed="0.002004"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.222720" level="INFO">${cleaned} = 23.200,00</msg>
+<var>${cleaned}</var>
+<arg>${cleaned}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.221725" elapsed="0.001989"/>
 </kw>
-<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
-<arg>Close Browser</arg>
-<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
-<status status="NOT RUN" start="2025-12-09T17:43:31.177017" elapsed="0.000000"/>
+<kw name="Replace String" owner="String">
+<msg time="2025-12-16T14:07:14.224709" level="INFO">${cleaned} = 23200,00</msg>
+<var>${cleaned}</var>
+<arg>${cleaned}</arg>
+<arg>.</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.223714" elapsed="0.002116"/>
 </kw>
-<kw name="Fail" owner="BuiltIn">
-<arg>${error}</arg>
-<doc>Fails the test with the given message and optionally alters its tags.</doc>
-<status status="NOT RUN" start="2025-12-09T17:43:31.177017" elapsed="0.000000"/>
+<kw name="Replace String" owner="String">
+<msg time="2025-12-16T14:07:14.226828" level="INFO">${cleaned} = 23200.00</msg>
+<var>${cleaned}</var>
+<arg>${cleaned}</arg>
+<arg>,</arg>
+<arg>.</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.225830" elapsed="0.000998"/>
 </kw>
-<status status="NOT RUN" start="2025-12-09T17:43:31.175982" elapsed="0.001035"/>
+<kw name="Strip String" owner="String">
+<msg time="2025-12-16T14:07:14.227825" level="INFO">${cleaned} = 23200.00</msg>
+<var>${cleaned}</var>
+<arg>${cleaned}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.226828" elapsed="0.000997"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.228822" level="INFO">${numeric} = 23200.0</msg>
+<var>${numeric}</var>
+<arg>${cleaned}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.227825" elapsed="0.000997"/>
+</kw>
+<return>
+<value>${numeric}</value>
+<status status="PASS" start="2025-12-16T14:07:14.228822" elapsed="0.000000"/>
+</return>
+<msg time="2025-12-16T14:07:14.229820" level="INFO">${harga_beli_numeric} = 23200.0</msg>
+<var>${harga_beli_numeric}</var>
+<arg>${harga_beli_text}</arg>
+<status status="PASS" start="2025-12-16T14:07:14.216730" elapsed="0.013090"/>
+</kw>
+<kw name="Extract Numeric Value">
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2025-12-16T14:07:14.231814" level="INFO">${cleaned} = ['24.050,00', '0,01']</msg>
+<var>${cleaned}</var>
+<arg>${text}</arg>
+<arg>([0-9.,]+)</arg>
+<arg>1</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.230817" elapsed="0.000997"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${cleaned}">
+<return>
+<value>${0}</value>
+<status status="NOT RUN" start="2025-12-16T14:07:14.232812" elapsed="0.000000"/>
+</return>
+<status status="NOT RUN" start="2025-12-16T14:07:14.231814" elapsed="0.000998"/>
 </branch>
-<status status="PASS" start="2025-12-09T17:43:20.019883" elapsed="11.157134"/>
-</try>
-<doc>Test untuk login ke website</doc>
-<tag>login</tag>
-<status status="PASS" start="2025-12-09T17:43:20.013897" elapsed="11.164342"/>
+<status status="PASS" start="2025-12-16T14:07:14.231814" elapsed="0.000998"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.233809" level="INFO">${cleaned} = 24.050,00</msg>
+<var>${cleaned}</var>
+<arg>${cleaned}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.232812" elapsed="0.000997"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-12-16T14:07:14.234807" level="INFO">${cleaned} = 24050,00</msg>
+<var>${cleaned}</var>
+<arg>${cleaned}</arg>
+<arg>.</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.233809" elapsed="0.000998"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-12-16T14:07:14.235804" level="INFO">${cleaned} = 24050.00</msg>
+<var>${cleaned}</var>
+<arg>${cleaned}</arg>
+<arg>,</arg>
+<arg>.</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.234807" elapsed="0.000997"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2025-12-16T14:07:14.238796" level="INFO">${cleaned} = 24050.00</msg>
+<var>${cleaned}</var>
+<arg>${cleaned}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.236801" elapsed="0.001995"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.240791" level="INFO">${numeric} = 24050.0</msg>
+<var>${numeric}</var>
+<arg>${cleaned}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.239809" elapsed="0.000982"/>
+</kw>
+<return>
+<value>${numeric}</value>
+<status status="PASS" start="2025-12-16T14:07:14.240791" elapsed="0.000000"/>
+</return>
+<msg time="2025-12-16T14:07:14.241788" level="INFO">${harga_jual_numeric} = 24050.0</msg>
+<var>${harga_jual_numeric}</var>
+<arg>${harga_jual_text}</arg>
+<status status="PASS" start="2025-12-16T14:07:14.230817" elapsed="0.010971"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.243783" level="INFO">
+==============================================
+</msg>
+<arg>\n==============================================\n</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.242785" elapsed="0.001995"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Harga Beli Emas Saat Ini: ${harga_beli_text} (${harga_beli_numeric})</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.244780" elapsed="0.000998"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>Harga Jual Emas Saat Ini: ${harga_jual_text} (${harga_jual_numeric})</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.245778" elapsed="0.000997"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.247772" level="INFO">
+==============================================
+</msg>
+<arg>\n==============================================\n</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.247772" elapsed="0.000000"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-12-16T14:07:14.249768" level="INFO" html="true">File '&lt;a href="file://C:\QA\My_Project\emas.xlsx"&gt;C:\QA\My_Project\emas.xlsx&lt;/a&gt;' exists.</msg>
+<arg>emas.xlsx</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.248769" elapsed="0.000999"/>
+</kw>
+<msg time="2025-12-16T14:07:14.249768" level="INFO">${excel_exists} = True</msg>
+<var>${excel_exists}</var>
+<arg>File Should Exist</arg>
+<arg>emas.xlsx</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.248769" elapsed="0.000999"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.251762" level="INFO">${beli_sebelumnya} = 0</msg>
+<var>${beli_sebelumnya}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.250764" elapsed="0.000998"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.254760" level="INFO">${jual_sebelumnya} = 0</msg>
+<var>${jual_sebelumnya}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.252759" elapsed="0.002001"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.256749" level="INFO">${panah_beli} = </msg>
+<var>${panah_beli}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.255755" elapsed="0.001991"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.259741" level="INFO">${panah_jual} = </msg>
+<var>${panah_jual}</var>
+<arg>${EMPTY}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.258743" elapsed="0.001996"/>
+</kw>
+<if>
+<branch type="IF" condition="${excel_exists}">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.262739" level="INFO">${all_data} = []</msg>
+<var>${all_data}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.261736" elapsed="0.001003"/>
+</kw>
+<kw name="Open Workbook" owner="RPA.Excel.Files">
+<msg time="2025-12-16T14:07:14.275738" level="INFO">Opened workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x0000023220B32490&gt;</msg>
+<arg>emas.xlsx</arg>
+<doc>Open an existing Excel workbook.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.263729" elapsed="0.012009"/>
+</kw>
+<kw name="List Worksheets" owner="RPA.Excel.Files">
+<msg time="2025-12-16T14:07:14.275738" level="INFO">${sheets} = ['Harga_Barang']</msg>
+<var>${sheets}</var>
+<doc>List all names of worksheets in the given workbook.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.275738" elapsed="0.000000"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.275738" level="INFO">${harga_barang_exists} = True</msg>
+<var>${harga_barang_exists}</var>
+<arg>'Harga_Barang' in ${sheets}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.275738" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="${harga_barang_exists}">
+<kw name="Read Worksheet" owner="RPA.Excel.Files">
+<msg time="2025-12-16T14:07:14.275738" level="INFO">${old_data} = [{'Tanggal': '2025-12-16 14:05:34', 'Harga Beli': 'Rp 23.200,00/ 0,01 gr', 'Perubahan Beli': '▼', 'Harga Jual': 'Rp 24.050,00/ 0,01 gr', 'Perubahan Jual': '▼'}, {'Tanggal': '2025-12-16 11:35:10', 'Har...</msg>
+<var>${old_data}</var>
+<arg>name=Harga_Barang</arg>
+<arg>header=True</arg>
+<doc>Read the content of a worksheet into a list of dictionaries.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.275738" elapsed="0.000000"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.275738" level="INFO">Length is 11.</msg>
+<msg time="2025-12-16T14:07:14.286499" level="INFO">${old_data_count} = 11</msg>
+<var>${old_data_count}</var>
+<arg>${old_data}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.275738" elapsed="0.012745"/>
+</kw>
+<if>
+<branch type="IF" condition="${old_data_count} &gt; 0">
+<kw name="Get From List" owner="Collections">
+<msg time="2025-12-16T14:07:14.291471" level="INFO">${data_terbaru} = {'Tanggal': '2025-12-16 14:05:34', 'Harga Beli': 'Rp 23.200,00/ 0,01 gr', 'Perubahan Beli': '▼', 'Harga Jual': 'Rp 24.050,00/ 0,01 gr', 'Perubahan Jual': '▼'}</msg>
+<var>${data_terbaru}</var>
+<arg>${old_data}</arg>
+<arg>0</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.290481" elapsed="0.000990"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-12-16T14:07:14.292468" level="INFO">${harga_beli_sebelumnya_text} = Rp 23.200,00/ 0,01 gr</msg>
+<var>${harga_beli_sebelumnya_text}</var>
+<arg>${data_terbaru}</arg>
+<arg>Harga Beli</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.291471" elapsed="0.000997"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-12-16T14:07:14.294514" level="INFO">${harga_jual_sebelumnya_text} = Rp 24.050,00/ 0,01 gr</msg>
+<var>${harga_jual_sebelumnya_text}</var>
+<arg>${data_terbaru}</arg>
+<arg>Harga Jual</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.293465" elapsed="0.001049"/>
+</kw>
+<kw name="Extract Numeric Value">
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2025-12-16T14:07:14.295932" level="INFO">${cleaned} = ['23.200,00', '0,01']</msg>
+<var>${cleaned}</var>
+<arg>${text}</arg>
+<arg>([0-9.,]+)</arg>
+<arg>1</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.295932" elapsed="0.004848"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${cleaned}">
+<return>
+<value>${0}</value>
+<status status="NOT RUN" start="2025-12-16T14:07:14.301262" elapsed="0.000000"/>
+</return>
+<status status="NOT RUN" start="2025-12-16T14:07:14.301262" elapsed="0.000999"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.301262" elapsed="0.000999"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.302261" level="INFO">${cleaned} = 23.200,00</msg>
+<var>${cleaned}</var>
+<arg>${cleaned}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.302261" elapsed="0.000997"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-12-16T14:07:14.306270" level="INFO">${cleaned} = 23200,00</msg>
+<var>${cleaned}</var>
+<arg>${cleaned}</arg>
+<arg>.</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.304259" elapsed="0.002992"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-12-16T14:07:14.308244" level="INFO">${cleaned} = 23200.00</msg>
+<var>${cleaned}</var>
+<arg>${cleaned}</arg>
+<arg>,</arg>
+<arg>.</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.307251" elapsed="0.000993"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2025-12-16T14:07:14.309242" level="INFO">${cleaned} = 23200.00</msg>
+<var>${cleaned}</var>
+<arg>${cleaned}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.308244" elapsed="0.000998"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.310240" level="INFO">${numeric} = 23200.0</msg>
+<var>${numeric}</var>
+<arg>${cleaned}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.310240" elapsed="0.000997"/>
+</kw>
+<return>
+<value>${numeric}</value>
+<status status="PASS" start="2025-12-16T14:07:14.311237" elapsed="0.000000"/>
+</return>
+<msg time="2025-12-16T14:07:14.312235" level="INFO">${beli_sebelumnya} = 23200.0</msg>
+<var>${beli_sebelumnya}</var>
+<arg>${harga_beli_sebelumnya_text}</arg>
+<status status="PASS" start="2025-12-16T14:07:14.295512" elapsed="0.016723"/>
+</kw>
+<kw name="Extract Numeric Value">
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2025-12-16T14:07:14.314229" level="INFO">${cleaned} = ['24.050,00', '0,01']</msg>
+<var>${cleaned}</var>
+<arg>${text}</arg>
+<arg>([0-9.,]+)</arg>
+<arg>1</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.313232" elapsed="0.000997"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${cleaned}">
+<return>
+<value>${0}</value>
+<status status="NOT RUN" start="2025-12-16T14:07:14.315226" elapsed="0.000000"/>
+</return>
+<status status="NOT RUN" start="2025-12-16T14:07:14.314229" elapsed="0.000997"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.314229" elapsed="0.000997"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.316224" level="INFO">${cleaned} = 24.050,00</msg>
+<var>${cleaned}</var>
+<arg>${cleaned}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.315226" elapsed="0.000998"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-12-16T14:07:14.317220" level="INFO">${cleaned} = 24050,00</msg>
+<var>${cleaned}</var>
+<arg>${cleaned}</arg>
+<arg>.</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.316224" elapsed="0.001993"/>
+</kw>
+<kw name="Replace String" owner="String">
+<msg time="2025-12-16T14:07:14.318217" level="INFO">${cleaned} = 24050.00</msg>
+<var>${cleaned}</var>
+<arg>${cleaned}</arg>
+<arg>,</arg>
+<arg>.</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.318217" elapsed="0.000997"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2025-12-16T14:07:14.320212" level="INFO">${cleaned} = 24050.00</msg>
+<var>${cleaned}</var>
+<arg>${cleaned}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.319214" elapsed="0.000998"/>
+</kw>
+<kw name="Convert To Number" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.322218" level="INFO">${numeric} = 24050.0</msg>
+<var>${numeric}</var>
+<arg>${cleaned}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.321210" elapsed="0.001008"/>
+</kw>
+<return>
+<value>${numeric}</value>
+<status status="PASS" start="2025-12-16T14:07:14.322218" elapsed="0.000986"/>
+</return>
+<msg time="2025-12-16T14:07:14.323204" level="INFO">${jual_sebelumnya} = 24050.0</msg>
+<var>${jual_sebelumnya}</var>
+<arg>${harga_jual_sebelumnya_text}</arg>
+<status status="PASS" start="2025-12-16T14:07:14.312235" elapsed="0.010969"/>
+</kw>
+<kw name="Determine Arrow">
+<if>
+<branch type="IF" condition="${harga_sebelumnya} == 0">
+<return>
+<value>-</value>
+<status status="NOT RUN" start="2025-12-16T14:07:14.325199" elapsed="0.000000"/>
+</return>
+<status status="NOT RUN" start="2025-12-16T14:07:14.324201" elapsed="0.000998"/>
+</branch>
+<branch type="ELSE IF" condition="${harga_sekarang} == ${harga_sebelumnya}">
+<return>
+<value>-</value>
+<status status="PASS" start="2025-12-16T14:07:14.325199" elapsed="0.000000"/>
+</return>
+<status status="PASS" start="2025-12-16T14:07:14.325199" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE IF" condition="${harga_sekarang} &gt; ${harga_sebelumnya}">
+<return>
+<value>▲</value>
+<status status="NOT RUN" start="2025-12-16T14:07:14.326196" elapsed="0.000000"/>
+</return>
+<status status="NOT RUN" start="2025-12-16T14:07:14.326196" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE">
+<return>
+<value>▼</value>
+<status status="NOT RUN" start="2025-12-16T14:07:14.326196" elapsed="0.000000"/>
+</return>
+<status status="NOT RUN" start="2025-12-16T14:07:14.326196" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.324201" elapsed="0.001995"/>
+</if>
+<msg time="2025-12-16T14:07:14.326196" level="INFO">${panah_beli} = -</msg>
+<var>${panah_beli}</var>
+<arg>${harga_beli_numeric}</arg>
+<arg>${beli_sebelumnya}</arg>
+<status status="PASS" start="2025-12-16T14:07:14.324201" elapsed="0.002991"/>
+</kw>
+<kw name="Determine Arrow">
+<if>
+<branch type="IF" condition="${harga_sebelumnya} == 0">
+<return>
+<value>-</value>
+<status status="NOT RUN" start="2025-12-16T14:07:14.328190" elapsed="0.000000"/>
+</return>
+<status status="NOT RUN" start="2025-12-16T14:07:14.328190" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE IF" condition="${harga_sekarang} == ${harga_sebelumnya}">
+<return>
+<value>-</value>
+<status status="PASS" start="2025-12-16T14:07:14.328190" elapsed="0.000998"/>
+</return>
+<status status="PASS" start="2025-12-16T14:07:14.328190" elapsed="0.000998"/>
+</branch>
+<branch type="ELSE IF" condition="${harga_sekarang} &gt; ${harga_sebelumnya}">
+<return>
+<value>▲</value>
+<status status="NOT RUN" start="2025-12-16T14:07:14.329188" elapsed="0.000000"/>
+</return>
+<status status="NOT RUN" start="2025-12-16T14:07:14.329188" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE">
+<return>
+<value>▼</value>
+<status status="NOT RUN" start="2025-12-16T14:07:14.329188" elapsed="0.000000"/>
+</return>
+<status status="NOT RUN" start="2025-12-16T14:07:14.329188" elapsed="0.000997"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.328190" elapsed="0.001995"/>
+</if>
+<msg time="2025-12-16T14:07:14.330185" level="INFO">${panah_jual} = -</msg>
+<var>${panah_jual}</var>
+<arg>${harga_jual_numeric}</arg>
+<arg>${jual_sebelumnya}</arg>
+<status status="PASS" start="2025-12-16T14:07:14.327192" elapsed="0.002993"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${all_data}</arg>
+<arg>${row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.331183" elapsed="0.000000"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-16 14:05:34', 'Harga Beli': 'Rp 23.200,00/ 0,01 gr', 'Perubahan Beli': '▼', 'Harga Jual': 'Rp 24.050,00/ 0,01 gr', 'Perubahan Jual': '▼'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.330185" elapsed="0.000998"/>
+</iter>
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${all_data}</arg>
+<arg>${row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.332180" elapsed="0.000000"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-16 11:35:10', 'Harga Beli': 'Rp 23.250,00/ 0,01 gr', 'Perubahan Beli': '-', 'Harga Jual': 'Rp 24.100,00/ 0,01 gr', 'Perubahan Jual': '-'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.331183" elapsed="0.000997"/>
+</iter>
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${all_data}</arg>
+<arg>${row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.333178" elapsed="0.000000"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-16 11:25:16', 'Harga Beli': 'Rp 23.250,00/ 0,01 gr', 'Perubahan Beli': '-', 'Harga Jual': 'Rp 24.100,00/ 0,01 gr', 'Perubahan Jual': '-'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.333178" elapsed="0.000996"/>
+</iter>
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${all_data}</arg>
+<arg>${row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.334174" elapsed="0.000000"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-16 11:24:15', 'Harga Beli': 'Rp 23.250,00/ 0,01 gr', 'Perubahan Beli': '-', 'Harga Jual': 'Rp 24.100,00/ 0,01 gr', 'Perubahan Jual': '-'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.334174" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${all_data}</arg>
+<arg>${row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.335171" elapsed="0.000000"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-16 11:16:13', 'Harga Beli': 'Rp 23.250,00/ 0,01 gr', 'Perubahan Beli': '-', 'Harga Jual': 'Rp 24.100,00/ 0,01 gr', 'Perubahan Jual': '-'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.335171" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${all_data}</arg>
+<arg>${row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.336169" elapsed="0.000000"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-16 11:15:09', 'Harga Beli': 'Rp 23.250,00/ 0,01 gr', 'Perubahan Beli': '-', 'Harga Jual': 'Rp 24.100,00/ 0,01 gr', 'Perubahan Jual': '-'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.335171" elapsed="0.000998"/>
+</iter>
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${all_data}</arg>
+<arg>${row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.337168" elapsed="0.000000"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-16 10:49:27', 'Harga Beli': 'Rp 23.250,00/ 0,01 gr', 'Perubahan Beli': '▲', 'Harga Jual': 'Rp 24.100,00/ 0,01 gr', 'Perubahan Jual': '▲'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.337168" elapsed="0.000996"/>
+</iter>
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${all_data}</arg>
+<arg>${row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.338164" elapsed="0.000000"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-15 17:51:35', 'Harga Beli': 'Rp 23.200,00/ 0,01 gr', 'Perubahan Beli': '-', 'Harga Jual': 'Rp 24.050,00/ 0,01 gr', 'Perubahan Jual': '-'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.338164" elapsed="0.000997"/>
+</iter>
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${all_data}</arg>
+<arg>${row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.339161" elapsed="0.000000"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-15 14:54:27', 'Harga Beli': 'Rp 23.200,00/ 0,01 gr', 'Perubahan Beli': '-', 'Harga Jual': 'Rp 24.050,00/ 0,01 gr', 'Perubahan Jual': '-'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.339161" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${all_data}</arg>
+<arg>${row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.340158" elapsed="0.000000"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-15 13:49:36', 'Harga Beli': 'Rp 23.200,00/ 0,01 gr', 'Perubahan Beli': '-', 'Harga Jual': 'Rp 24.050,00/ 0,01 gr', 'Perubahan Jual': '-'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.340158" elapsed="0.000000"/>
+</iter>
+<iter>
+<kw name="Append To List" owner="Collections">
+<arg>${all_data}</arg>
+<arg>${row}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.341155" elapsed="0.000000"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-15 12:51:25', 'Harga Beli': 'Rp 23.200,00/ 0,01 gr', 'Perubahan Beli': '-', 'Harga Jual': 'Rp 24.050,00/ 0,01 gr', 'Perubahan Jual': '-'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.340158" elapsed="0.000997"/>
+</iter>
+<var>${row}</var>
+<value>@{old_data}</value>
+<status status="PASS" start="2025-12-16T14:07:14.330185" elapsed="0.010970"/>
+</for>
+<status status="PASS" start="2025-12-16T14:07:14.289476" elapsed="0.051679"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.288483" elapsed="0.052672"/>
+</if>
+<status status="PASS" start="2025-12-16T14:07:14.275738" elapsed="0.065417"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.275738" elapsed="0.065417"/>
+</if>
+<kw name="Close Workbook" owner="RPA.Excel.Files">
+<msg time="2025-12-16T14:07:14.342153" level="INFO">Closing workbook: &lt;RPA.Excel.Files.XlsxWorkbook object at 0x0000023220B32490&gt;</msg>
+<doc>Close the active workbook.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.341155" elapsed="0.000998"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.343633" level="INFO">&amp;{new_row} = { Tanggal=2025-12-16 14:07:06 | Harga Beli=Rp 23.200,00/ 0,01 gr | Perubahan Beli=- | Harga Jual=Rp 24.050,00/ 0,01 gr | Perubahan Jual=- }</msg>
+<var>&amp;{new_row}</var>
+<arg>Tanggal=${today_datetime}</arg>
+<arg>Harga Beli=${harga_beli_text}</arg>
+<arg>Perubahan Beli=${panah_beli}</arg>
+<arg>Harga Jual=${harga_jual_text}</arg>
+<arg>Perubahan Jual=${panah_jual}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.342153" elapsed="0.002309"/>
+</kw>
+<kw name="Insert Into List" owner="Collections">
+<arg>${all_data}</arg>
+<arg>0</arg>
+<arg>${new_row}</arg>
+<doc>Inserts ``value`` into ``list`` to the position specified with ``index``.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.344462" elapsed="0.000000"/>
+</kw>
+<kw name="Create Workbook" owner="RPA.Excel.Files">
+<arg>emas.xlsx</arg>
+<doc>Create and open a new Excel workbook.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.345460" elapsed="0.000997"/>
+</kw>
+<kw name="Create Worksheet" owner="RPA.Excel.Files">
+<arg>name=Harga_Barang</arg>
+<arg>content=${all_data}</arg>
+<arg>header=True</arg>
+<doc>Create a new worksheet in the current workbook.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.346457" elapsed="0.001995"/>
+</kw>
+<kw name="List Worksheets" owner="RPA.Excel.Files">
+<msg time="2025-12-16T14:07:14.348452" level="INFO">${sheets} = ['Sheet', 'Harga_Barang']</msg>
+<var>${sheets}</var>
+<doc>List all names of worksheets in the given workbook.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.348452" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.349450" level="INFO">Worksheets sebelum penghapusan: ['Sheet', 'Harga_Barang']</msg>
+<arg>Worksheets sebelum penghapusan: ${sheets}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.349450" elapsed="0.001031"/>
+</kw>
+<for flavor="IN">
+<iter>
+<if>
+<branch type="IF" condition="'${sheet}' in ['Sheet', 'Sheet1'] and '${sheet}' != 'Harga_Barang'">
+<kw name="Remove Worksheet" owner="RPA.Excel.Files">
+<arg>name=${sheet}</arg>
+<doc>Remove a worksheet from the active workbook.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.351540" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.352537" level="INFO">Dihapus sheet default: Sheet</msg>
+<arg>Dihapus sheet default: ${sheet}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.352537" elapsed="0.001000"/>
+</kw>
+<status status="PASS" start="2025-12-16T14:07:14.351540" elapsed="0.001997"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.350543" elapsed="0.002994"/>
+</if>
+<var name="${sheet}">Sheet</var>
+<status status="PASS" start="2025-12-16T14:07:14.350543" elapsed="0.002994"/>
+</iter>
+<iter>
+<if>
+<branch type="IF" condition="'${sheet}' in ['Sheet', 'Sheet1'] and '${sheet}' != 'Harga_Barang'">
+<kw name="Remove Worksheet" owner="RPA.Excel.Files">
+<arg>name=${sheet}</arg>
+<doc>Remove a worksheet from the active workbook.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.354533" elapsed="0.000997"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Dihapus sheet default: ${sheet}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.355530" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.354533" elapsed="0.000997"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.354533" elapsed="0.000997"/>
+</if>
+<var name="${sheet}">Harga_Barang</var>
+<status status="PASS" start="2025-12-16T14:07:14.354533" elapsed="0.000997"/>
+</iter>
+<var>${sheet}</var>
+<value>@{sheets}</value>
+<status status="PASS" start="2025-12-16T14:07:14.350543" elapsed="0.004987"/>
+</for>
+<kw name="Save Workbook" owner="RPA.Excel.Files">
+<doc>Save the active workbook.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.355530" elapsed="0.020943"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.377471" level="INFO">
+✅ Data berhasil disimpan ke Excel</msg>
+<arg>\n✅ Data berhasil disimpan ke Excel</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.376473" elapsed="0.000998"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.378469" level="INFO">Simbol perubahan: ▲=Naik, ▼=Turun, -=Stabil</msg>
+<arg>Simbol perubahan: ▲=Naik, ▼=Turun, -=Stabil</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.378469" elapsed="0.000997"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.379466" level="INFO">
+Jalankan file Formatting.robot untuk menambahkan warna</msg>
+<arg>\nJalankan file Formatting.robot untuk menambahkan warna</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.379466" elapsed="0.000997"/>
+</kw>
+<status status="PASS" start="2025-12-16T14:07:14.260739" elapsed="0.119724"/>
+</branch>
+<branch type="ELSE">
+<kw name="Create Workbook" owner="RPA.Excel.Files">
+<arg>emas.xlsx</arg>
+<doc>Create and open a new Excel workbook.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.380463" elapsed="0.000998"/>
+</kw>
+<kw name="Create Worksheet" owner="RPA.Excel.Files">
+<arg>name=Harga_Barang</arg>
+<doc>Create a new worksheet in the current workbook.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.381461" elapsed="0.000000"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<var>&amp;{first_row}</var>
+<arg>Tanggal=${today_datetime}</arg>
+<arg>Harga Beli=${harga_beli_text}</arg>
+<arg>Perubahan Beli=-</arg>
+<arg>Harga Jual=${harga_jual_text}</arg>
+<arg>Perubahan Jual=-</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.381461" elapsed="0.000000"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<var>${data}</var>
+<arg>${first_row}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.381461" elapsed="0.000000"/>
+</kw>
+<kw name="Append Rows To Worksheet" owner="RPA.Excel.Files">
+<arg>${data}</arg>
+<arg>name=Harga_Barang</arg>
+<arg>header=True</arg>
+<doc>Append values to the end of the worksheet.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.382458" elapsed="0.000000"/>
+</kw>
+<kw name="List Worksheets" owner="RPA.Excel.Files">
+<var>${sheets}</var>
+<doc>List all names of worksheets in the given workbook.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.382458" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Worksheets sebelum penghapusan: ${sheets}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.382458" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<if>
+<branch type="IF" condition="'${sheet}' in ['Sheet', 'Sheet1'] and '${sheet}' != 'Harga_Barang'">
+<kw name="Remove Worksheet" owner="RPA.Excel.Files">
+<arg>name=${sheet}</arg>
+<doc>Remove a worksheet from the active workbook.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.383454" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>Dihapus sheet default: ${sheet}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.383454" elapsed="0.000997"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.383454" elapsed="0.000997"/>
+</branch>
+<status status="NOT RUN" start="2025-12-16T14:07:14.383454" elapsed="0.000997"/>
+</if>
+<var name="${sheet}"/>
+<status status="NOT RUN" start="2025-12-16T14:07:14.383454" elapsed="0.000997"/>
+</iter>
+<var>${sheet}</var>
+<value>@{sheets}</value>
+<status status="NOT RUN" start="2025-12-16T14:07:14.383454" elapsed="0.000997"/>
+</for>
+<kw name="Save Workbook" owner="RPA.Excel.Files">
+<doc>Save the active workbook.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.384451" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>\n✅ File Excel baru dibuat</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.384451" elapsed="0.000000"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>\nJalankan file Formatting.robot untuk menambahkan warna</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.384451" elapsed="0.000998"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.380463" elapsed="0.004986"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.260739" elapsed="0.124710"/>
+</if>
+<kw name="Create HTML Report">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.387445" level="INFO">${html} = &lt;!DOCTYPE html&gt;</msg>
+<var>${html}</var>
+<arg>&lt;!DOCTYPE html&gt;</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.386447" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.388443" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt;</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;html&gt;&lt;head&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.388443" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.389439" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt;</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.389439" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.391434" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt;</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;style&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.390436" elapsed="0.001995"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.392431" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; }</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>body { font-family: Arial, sans-serif; margin: 20px; }</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.392431" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.393428" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; }</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>h2 { color: #333; }</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.393428" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.394426" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>table { border-collapse: collapse; width: 100%; margin-top: 20px; }</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.394426" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.395422" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.394426" elapsed="0.000996"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.396420" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>th { background-color: #4CAF50; color: white; }</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.395422" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.397417" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>tr:nth-child(even) { background-color: #f2f2f2; }</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.396420" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.398415" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>.naik { color: green; font-weight: bold; }</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.397417" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.399412" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>.turun { color: red; font-weight: bold; }</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.398415" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.400540" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>.stabil { color: black; }</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.399412" elapsed="0.001128"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.401537" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>.timestamp { font-size: 12px; color: #666; margin-top: 20px; }</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.400540" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.402534" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;/style&gt;&lt;/head&gt;&lt;body&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.401537" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.403533" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;h2&gt;📊 Laporan Harga Emas Pegadaian&lt;/h2&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.402534" elapsed="0.000999"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.405527" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;table&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.404531" elapsed="0.000996"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.406528" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;tr&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.406528" elapsed="0.000994"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.407522" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;th&gt;Tanggal&lt;/th&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.407522" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.408519" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;th&gt;Harga Beli&lt;/th&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.408519" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.409517" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;th&gt;Perubahan Beli&lt;/th&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.409517" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.410514" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;th&gt;Harga Jual&lt;/th&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.409517" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.410514" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;th&gt;Perubahan Jual&lt;/th&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.410514" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.411511" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;/tr&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.411511" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.412508" level="INFO">${count} = 0</msg>
+<var>${count}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.411511" elapsed="0.000997"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.414503" level="INFO">${count} = 1</msg>
+<var>${count}</var>
+<arg>${count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.413506" elapsed="0.000997"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.414503" level="INFO">${class_beli} = stabil</msg>
+<var>${class_beli}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.414503" elapsed="0.000997"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Beli]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.415500" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.415500" elapsed="0.000998"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Beli]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.416498" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.416498" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.415500" elapsed="0.000998"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.417494" level="INFO">${class_jual} = stabil</msg>
+<var>${class_jual}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.416498" elapsed="0.000996"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Jual]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.417494" elapsed="0.000998"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.417494" elapsed="0.000998"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Jual]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.418492" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.418492" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.417494" elapsed="0.000998"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.419490" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.419490" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="${count} == 1">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.421485" level="INFO">${row_style} = style="background-color: #e8f5e8;"</msg>
+<var>${row_style}</var>
+<arg>style="background-color: #e8f5e8;"</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.420487" elapsed="0.000998"/>
+</kw>
+<status status="PASS" start="2025-12-16T14:07:14.420487" elapsed="0.000998"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.422481" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.421485" elapsed="0.000996"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.420487" elapsed="0.001994"/>
+</if>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.423479" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;tr ${row_style}&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.422481" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.424477" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Tanggal]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.424477" elapsed="0.001196"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.425673" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.425673" elapsed="0.000999"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.427669" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_beli}"&gt;${row}[Perubahan Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.426672" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.428666" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.427669" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.429664" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_jual}"&gt;${row}[Perubahan Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.428666" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.430660" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;/tr&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.429664" elapsed="0.000996"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-16 14:07:06', 'Harga Beli': 'Rp 23.200,00/ 0,01 gr', 'Perubahan Beli': '-', 'Harga Jual': 'Rp 24.050,00/ 0,01 gr', 'Perubahan Jual': '-'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.413506" elapsed="0.017154"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.431657" level="INFO">${count} = 2</msg>
+<var>${count}</var>
+<arg>${count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.431657" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.432655" level="INFO">${class_beli} = stabil</msg>
+<var>${class_beli}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.432655" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Beli]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.433653" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.432655" elapsed="0.000998"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Beli]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.434650" level="INFO">${class_beli} = turun</msg>
+<var>${class_beli}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.434650" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-12-16T14:07:14.433653" elapsed="0.000997"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.432655" elapsed="0.001995"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.435648" level="INFO">${class_jual} = stabil</msg>
+<var>${class_jual}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.435648" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Jual]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.436644" elapsed="0.000999"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.436644" elapsed="0.000999"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Jual]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.438640" level="INFO">${class_jual} = turun</msg>
+<var>${class_jual}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.438640" elapsed="0.000996"/>
+</kw>
+<status status="PASS" start="2025-12-16T14:07:14.437643" elapsed="0.001993"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.436644" elapsed="0.002992"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.440634" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.439636" elapsed="0.000998"/>
+</kw>
+<if>
+<branch type="IF" condition="${count} == 1">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${row_style}</var>
+<arg>style="background-color: #e8f5e8;"</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.441631" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.440634" elapsed="0.001995"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.442629" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.442629" elapsed="0.000996"/>
+</kw>
+<status status="PASS" start="2025-12-16T14:07:14.442629" elapsed="0.000996"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.440634" elapsed="0.002991"/>
+</if>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.444623" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;tr ${row_style}&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.443625" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.445621" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Tanggal]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.444623" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.446618" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.446618" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.448613" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_beli}"&gt;${row}[Perubahan Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.447615" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.449610" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.448613" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.450694" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_jual}"&gt;${row}[Perubahan Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.450694" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.452690" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;/tr&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.451692" elapsed="0.000998"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-16 14:05:34', 'Harga Beli': 'Rp 23.200,00/ 0,01 gr', 'Perubahan Beli': '▼', 'Harga Jual': 'Rp 24.050,00/ 0,01 gr', 'Perubahan Jual': '▼'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.430660" elapsed="0.022030"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.454685" level="INFO">${count} = 3</msg>
+<var>${count}</var>
+<arg>${count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.453689" elapsed="0.000996"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.455682" level="INFO">${class_beli} = stabil</msg>
+<var>${class_beli}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.454685" elapsed="0.000997"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Beli]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.456680" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.455682" elapsed="0.000998"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Beli]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.457677" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.456680" elapsed="0.000997"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.455682" elapsed="0.001995"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.457677" level="INFO">${class_jual} = stabil</msg>
+<var>${class_jual}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.457677" elapsed="0.000996"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Jual]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.459671" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.458673" elapsed="0.000998"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Jual]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.460670" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.459671" elapsed="0.000999"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.458673" elapsed="0.001997"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.460670" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.460670" elapsed="0.000996"/>
+</kw>
+<if>
+<branch type="IF" condition="${count} == 1">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${row_style}</var>
+<arg>style="background-color: #e8f5e8;"</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.462663" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.461666" elapsed="0.000997"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.463661" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.462663" elapsed="0.000998"/>
+</kw>
+<status status="PASS" start="2025-12-16T14:07:14.462663" elapsed="0.000998"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.461666" elapsed="0.001995"/>
+</if>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.464658" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;tr ${row_style}&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.464658" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.466653" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Tanggal]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.465655" elapsed="0.001996"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.468649" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.467651" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.470642" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_beli}"&gt;${row}[Perubahan Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.469649" elapsed="0.001990"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.472637" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.471639" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.473634" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_jual}"&gt;${row}[Perubahan Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.473634" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.475630" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;/tr&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.474631" elapsed="0.000999"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-16 11:35:10', 'Harga Beli': 'Rp 23.250,00/ 0,01 gr', 'Perubahan Beli': '-', 'Harga Jual': 'Rp 24.100,00/ 0,01 gr', 'Perubahan Jual': '-'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.453689" elapsed="0.021941"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.477623" level="INFO">${count} = 4</msg>
+<var>${count}</var>
+<arg>${count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.477623" elapsed="0.000998"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.480616" level="INFO">${class_beli} = stabil</msg>
+<var>${class_beli}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.479618" elapsed="0.001996"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Beli]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.482610" elapsed="0.000997"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.481614" elapsed="0.001993"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Beli]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.484604" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.483607" elapsed="0.000997"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.481614" elapsed="0.002990"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.486600" level="INFO">${class_jual} = stabil</msg>
+<var>${class_jual}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.485603" elapsed="0.000997"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Jual]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.488594" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.487597" elapsed="0.001995"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Jual]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.490589" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.489592" elapsed="0.000997"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.487597" elapsed="0.002992"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.492584" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.490589" elapsed="0.001995"/>
+</kw>
+<if>
+<branch type="IF" condition="${count} == 1">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${row_style}</var>
+<arg>style="background-color: #e8f5e8;"</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.493581" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.492584" elapsed="0.001994"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.495589" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.495589" elapsed="0.000984"/>
+</kw>
+<status status="PASS" start="2025-12-16T14:07:14.494578" elapsed="0.001995"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.492584" elapsed="0.003989"/>
+</if>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.498568" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;tr ${row_style}&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.496573" elapsed="0.002992"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.500562" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Tanggal]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.499565" elapsed="0.001995"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.503554" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.502557" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.505549" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_beli}"&gt;${row}[Perubahan Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.504552" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.507543" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.506546" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.509539" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_jual}"&gt;${row}[Perubahan Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.508543" elapsed="0.001995"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.511534" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;/tr&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.510538" elapsed="0.000996"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-16 11:25:16', 'Harga Beli': 'Rp 23.250,00/ 0,01 gr', 'Perubahan Beli': '-', 'Harga Jual': 'Rp 24.100,00/ 0,01 gr', 'Perubahan Jual': '-'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.476626" elapsed="0.034908"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.512531" level="INFO">${count} = 5</msg>
+<var>${count}</var>
+<arg>${count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.512531" elapsed="0.000997"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.514524" level="INFO">${class_beli} = stabil</msg>
+<var>${class_beli}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.513528" elapsed="0.000996"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Beli]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.515522" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.515522" elapsed="0.000997"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Beli]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.516519" elapsed="0.000997"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.516519" elapsed="0.000997"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.515522" elapsed="0.001994"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.517516" level="INFO">${class_jual} = stabil</msg>
+<var>${class_jual}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.517516" elapsed="0.000998"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Jual]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.519512" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.518514" elapsed="0.000998"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Jual]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.520509" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.519512" elapsed="0.000997"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.518514" elapsed="0.002993"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.521507" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.521507" elapsed="0.000997"/>
+</kw>
+<if>
+<branch type="IF" condition="${count} == 1">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${row_style}</var>
+<arg>style="background-color: #e8f5e8;"</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.523502" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.522504" elapsed="0.000998"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.524499" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.523502" elapsed="0.000997"/>
+</kw>
+<status status="PASS" start="2025-12-16T14:07:14.523502" elapsed="0.000997"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.522504" elapsed="0.001995"/>
+</if>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.525496" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;tr ${row_style}&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.525496" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.527490" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Tanggal]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.526493" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.528487" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.528487" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.529485" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_beli}"&gt;${row}[Perubahan Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.529485" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.531480" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.530483" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.532476" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_jual}"&gt;${row}[Perubahan Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.531480" elapsed="0.000996"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.533474" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;/tr&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.532476" elapsed="0.000998"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-16 11:24:15', 'Harga Beli': 'Rp 23.250,00/ 0,01 gr', 'Perubahan Beli': '-', 'Harga Jual': 'Rp 24.100,00/ 0,01 gr', 'Perubahan Jual': '-'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.512531" elapsed="0.020943"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.534471" level="INFO">${count} = 6</msg>
+<var>${count}</var>
+<arg>${count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.534471" elapsed="0.000997"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.535468" level="INFO">${class_beli} = stabil</msg>
+<var>${class_beli}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.535468" elapsed="0.000998"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Beli]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.537464" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.536466" elapsed="0.000998"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Beli]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.538461" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.537464" elapsed="0.000997"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.536466" elapsed="0.001995"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.539458" level="INFO">${class_jual} = stabil</msg>
+<var>${class_jual}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.538461" elapsed="0.000997"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Jual]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.540456" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.539458" elapsed="0.000998"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Jual]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.541452" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.540456" elapsed="0.000996"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.539458" elapsed="0.002992"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.542450" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.542450" elapsed="0.000997"/>
+</kw>
+<if>
+<branch type="IF" condition="${count} == 1">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${row_style}</var>
+<arg>style="background-color: #e8f5e8;"</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.543447" elapsed="0.000997"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.543447" elapsed="0.000997"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.545442" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.544444" elapsed="0.000998"/>
+</kw>
+<status status="PASS" start="2025-12-16T14:07:14.544444" elapsed="0.000998"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.543447" elapsed="0.001995"/>
+</if>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.546439" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;tr ${row_style}&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.545442" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.547437" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Tanggal]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.546439" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.548434" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.548434" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.549432" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_beli}"&gt;${row}[Perubahan Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.548434" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.550428" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.550428" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.551426" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_jual}"&gt;${row}[Perubahan Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.551426" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.552423" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;/tr&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.552423" elapsed="0.000998"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-16 11:16:13', 'Harga Beli': 'Rp 23.250,00/ 0,01 gr', 'Perubahan Beli': '-', 'Harga Jual': 'Rp 24.100,00/ 0,01 gr', 'Perubahan Jual': '-'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.534471" elapsed="0.018950"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.554418" level="INFO">${count} = 7</msg>
+<var>${count}</var>
+<arg>${count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.554418" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.555414" level="INFO">${class_beli} = stabil</msg>
+<var>${class_beli}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.554418" elapsed="0.000996"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Beli]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.556413" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.555414" elapsed="0.000999"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Beli]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.557410" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.556413" elapsed="0.000997"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.555414" elapsed="0.001996"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.558407" level="INFO">${class_jual} = stabil</msg>
+<var>${class_jual}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.557410" elapsed="0.000997"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Jual]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.559404" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.558407" elapsed="0.000997"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Jual]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.560402" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.559404" elapsed="0.000998"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.558407" elapsed="0.001995"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.560402" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.560402" elapsed="0.000997"/>
+</kw>
+<if>
+<branch type="IF" condition="${count} == 1">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${row_style}</var>
+<arg>style="background-color: #e8f5e8;"</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.561399" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.561399" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.562396" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.562396" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-12-16T14:07:14.561399" elapsed="0.000997"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.561399" elapsed="0.000997"/>
+</if>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.563394" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;tr ${row_style}&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.563394" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.564391" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Tanggal]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.564391" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.565388" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.565388" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.566386" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_beli}"&gt;${row}[Perubahan Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.565388" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.567383" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.566386" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.568380" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_jual}"&gt;${row}[Perubahan Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.567383" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.569378" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;/tr&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.568380" elapsed="0.000998"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-16 11:15:09', 'Harga Beli': 'Rp 23.250,00/ 0,01 gr', 'Perubahan Beli': '-', 'Harga Jual': 'Rp 24.100,00/ 0,01 gr', 'Perubahan Jual': '-'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.553421" elapsed="0.016954"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.571373" level="INFO">${count} = 8</msg>
+<var>${count}</var>
+<arg>${count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.571373" elapsed="0.000997"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.572370" level="INFO">${class_beli} = stabil</msg>
+<var>${class_beli}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.572370" elapsed="0.000998"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Beli]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.574365" level="INFO">${class_beli} = naik</msg>
+<var>${class_beli}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.573368" elapsed="0.000997"/>
+</kw>
+<status status="PASS" start="2025-12-16T14:07:14.573368" elapsed="0.000997"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Beli]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.575368" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.575368" elapsed="0.000993"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.573368" elapsed="0.002993"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.576361" level="INFO">${class_jual} = stabil</msg>
+<var>${class_jual}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.576361" elapsed="0.000995"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Jual]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.578354" level="INFO">${class_jual} = naik</msg>
+<var>${class_jual}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.577356" elapsed="0.000998"/>
+</kw>
+<status status="PASS" start="2025-12-16T14:07:14.577356" elapsed="0.000998"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Jual]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.578354" elapsed="0.000997"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.578354" elapsed="0.000997"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.577356" elapsed="0.001995"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.579351" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.579351" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="${count} == 1">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${row_style}</var>
+<arg>style="background-color: #e8f5e8;"</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.580348" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.580348" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.581346" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.580348" elapsed="0.000998"/>
+</kw>
+<status status="PASS" start="2025-12-16T14:07:14.580348" elapsed="0.000998"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.580348" elapsed="0.000998"/>
+</if>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.582343" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;tr ${row_style}&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.581346" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.583340" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Tanggal]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.582343" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.584338" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.583340" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.585336" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_beli}"&gt;${row}[Perubahan Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.584338" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.586334" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.585336" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.587330" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_jual}"&gt;${row}[Perubahan Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.587330" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.588327" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;/tr&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.588327" elapsed="0.000000"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-16 10:49:27', 'Harga Beli': 'Rp 23.250,00/ 0,01 gr', 'Perubahan Beli': '▲', 'Harga Jual': 'Rp 24.100,00/ 0,01 gr', 'Perubahan Jual': '▲'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.570375" elapsed="0.017952"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.590322" level="INFO">${count} = 9</msg>
+<var>${count}</var>
+<arg>${count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.589324" elapsed="0.000998"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.590322" level="INFO">${class_beli} = stabil</msg>
+<var>${class_beli}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.590322" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Beli]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.591320" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.591320" elapsed="0.000997"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Beli]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.592317" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.592317" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.591320" elapsed="0.000997"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.593314" level="INFO">${class_jual} = stabil</msg>
+<var>${class_jual}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.593314" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Jual]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.594311" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.593314" elapsed="0.000997"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Jual]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.594311" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.594311" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.593314" elapsed="0.001994"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.595308" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.595308" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="${count} == 1">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${row_style}</var>
+<arg>style="background-color: #e8f5e8;"</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.596306" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.595308" elapsed="0.000998"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.597303" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.596306" elapsed="0.000997"/>
+</kw>
+<status status="PASS" start="2025-12-16T14:07:14.596306" elapsed="0.000997"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.595308" elapsed="0.001995"/>
+</if>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.598300" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;tr ${row_style}&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.597303" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.599297" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Tanggal]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.598300" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.599297" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.599297" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.600295" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_beli}"&gt;${row}[Perubahan Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.600295" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.602290" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.601293" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.603288" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_jual}"&gt;${row}[Perubahan Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.602290" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.605283" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;/tr&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.604285" elapsed="0.000998"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-15 17:51:35', 'Harga Beli': 'Rp 23.200,00/ 0,01 gr', 'Perubahan Beli': '-', 'Harga Jual': 'Rp 24.050,00/ 0,01 gr', 'Perubahan Jual': '-'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.589324" elapsed="0.015959"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.607277" level="INFO">${count} = 10</msg>
+<var>${count}</var>
+<arg>${count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.606281" elapsed="0.000996"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.607277" level="INFO">${class_beli} = stabil</msg>
+<var>${class_beli}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.607277" elapsed="0.000997"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Beli]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.608274" elapsed="0.000997"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.608274" elapsed="0.000997"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Beli]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.609271" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.609271" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.608274" elapsed="0.000997"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.610268" level="INFO">${class_jual} = stabil</msg>
+<var>${class_jual}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.610268" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Jual]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.611266" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.610268" elapsed="0.000998"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Jual]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.611266" elapsed="0.000997"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.611266" elapsed="0.000997"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.610268" elapsed="0.001995"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.612263" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.612263" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="${count} == 1">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${row_style}</var>
+<arg>style="background-color: #e8f5e8;"</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.613260" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.613260" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.614258" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.614258" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-12-16T14:07:14.613260" elapsed="0.000998"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.613260" elapsed="0.000998"/>
+</if>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.615255" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;tr ${row_style}&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.614258" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.616252" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Tanggal]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.615255" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.617250" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.616252" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.618247" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_beli}"&gt;${row}[Perubahan Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.617250" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.619245" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.618247" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.620242" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_jual}"&gt;${row}[Perubahan Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.619245" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.621239" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;/tr&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.621239" elapsed="0.000999"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-15 14:54:27', 'Harga Beli': 'Rp 23.200,00/ 0,01 gr', 'Perubahan Beli': '-', 'Harga Jual': 'Rp 24.050,00/ 0,01 gr', 'Perubahan Jual': '-'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.606281" elapsed="0.015957"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.623234" level="INFO">${count} = 11</msg>
+<var>${count}</var>
+<arg>${count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.622238" elapsed="0.000996"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.624231" level="INFO">${class_beli} = stabil</msg>
+<var>${class_beli}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.623234" elapsed="0.000997"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Beli]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.625228" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.624231" elapsed="0.000997"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Beli]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.625228" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.625228" elapsed="0.000998"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.624231" elapsed="0.001995"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.626226" level="INFO">${class_jual} = stabil</msg>
+<var>${class_jual}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.626226" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Jual]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.627223" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.626226" elapsed="0.000997"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Jual]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.627223" elapsed="0.000997"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.627223" elapsed="0.000997"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.626226" elapsed="0.001994"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.628220" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.628220" elapsed="0.000000"/>
+</kw>
+<if>
+<branch type="IF" condition="${count} == 1">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${row_style}</var>
+<arg>style="background-color: #e8f5e8;"</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.629217" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.629217" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.630215" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.630215" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-12-16T14:07:14.629217" elapsed="0.000998"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.628220" elapsed="0.001995"/>
+</if>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.631212" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;tr ${row_style}&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.630215" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.632210" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Tanggal]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.631212" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.633207" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.633207" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.634204" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_beli}"&gt;${row}[Perubahan Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.633207" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.635202" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.634204" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.636199" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_jual}"&gt;${row}[Perubahan Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.636199" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.637197" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;/tr&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.637197" elapsed="0.000000"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-15 13:49:36', 'Harga Beli': 'Rp 23.200,00/ 0,01 gr', 'Perubahan Beli': '-', 'Harga Jual': 'Rp 24.050,00/ 0,01 gr', 'Perubahan Jual': '-'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.622238" elapsed="0.015956"/>
+</iter>
+<iter>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.639191" level="INFO">${count} = 12</msg>
+<var>${count}</var>
+<arg>${count} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.638194" elapsed="0.000997"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.639191" level="INFO">${class_beli} = stabil</msg>
+<var>${class_beli}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.639191" elapsed="0.000997"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Beli]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.640188" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.640188" elapsed="0.000000"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Beli]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_beli}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.641186" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.640188" elapsed="0.000998"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.640188" elapsed="0.000998"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.641186" level="INFO">${class_jual} = stabil</msg>
+<var>${class_jual}</var>
+<arg>stabil</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.641186" elapsed="0.000997"/>
+</kw>
+<if>
+<branch type="IF" condition="'${row}[Perubahan Jual]' == '▲'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>naik</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.642183" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.642183" elapsed="0.000997"/>
+</branch>
+<branch type="ELSE IF" condition="'${row}[Perubahan Jual]' == '▼'">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${class_jual}</var>
+<arg>turun</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.643180" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.643180" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.642183" elapsed="0.000997"/>
+</if>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.644177" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.643180" elapsed="0.000997"/>
+</kw>
+<if>
+<branch type="IF" condition="${count} == 1">
+<kw name="Set Variable" owner="BuiltIn">
+<var>${row_style}</var>
+<arg>style="background-color: #e8f5e8;"</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" start="2025-12-16T14:07:14.644177" elapsed="0.000998"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T14:07:14.644177" elapsed="0.000998"/>
+</branch>
+<branch type="ELSE">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.645175" level="INFO">${row_style} = </msg>
+<var>${row_style}</var>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.645175" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2025-12-16T14:07:14.645175" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-12-16T14:07:14.644177" elapsed="0.001995"/>
+</if>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.646172" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;tr ${row_style}&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.646172" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.647170" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Tanggal]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.647170" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.648167" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.648167" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.649164" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_beli}"&gt;${row}[Perubahan Beli]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.649164" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.650162" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td&gt;${row}[Harga Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.650162" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.651159" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;td class="${class_jual}"&gt;${row}[Perubahan Jual]&lt;/td&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.651159" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.652157" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;/tr&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.652157" elapsed="0.000000"/>
+</kw>
+<var name="${row}">{'Tanggal': '2025-12-15 12:51:25', 'Harga Beli': 'Rp 23.200,00/ 0,01 gr', 'Perubahan Beli': '-', 'Harga Jual': 'Rp 24.050,00/ 0,01 gr', 'Perubahan Jual': '-'}</var>
+<status status="PASS" start="2025-12-16T14:07:14.638194" elapsed="0.013963"/>
+</iter>
+<var>${row}</var>
+<value>@{data}</value>
+<status status="PASS" start="2025-12-16T14:07:14.412508" elapsed="0.239649"/>
+</for>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.653154" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;/table&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.653154" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.654151" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;div style="margin-top: 30px;"&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.654151" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.655148" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;h3&gt;Keterangan:&lt;/h3&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.654151" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.656146" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;ul&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.655148" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.657143" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;li&gt;&lt;span class="naik"&gt;▲&lt;/span&gt; = Harga Naik&lt;/li&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.656146" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.658141" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;li&gt;&lt;span class="turun"&gt;▼&lt;/span&gt; = Harga Turun&lt;/li&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.657143" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.659138" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;li&gt;&lt;span class="stabil"&gt;-&lt;/span&gt; = Harga Stabil/Tidak ada data sebelumnya&lt;/li&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.658141" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.660136" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;/ul&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.659138" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.660136" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;/div&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.660136" elapsed="0.000996"/>
+</kw>
+<kw name="Get Time" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.661132" level="INFO">${current_time} = 2025-12-16 14:07:14</msg>
+<var>${current_time}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns the given time in the requested format.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.661132" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.662130" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;div class="timestamp"&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.661132" elapsed="0.000998"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.663127" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;p&gt;Laporan dibuat pada: ${current_time}&lt;/p&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.662130" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.663127" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;p&gt;Sumber data: &lt;a href="https://www.pegadaian.co.id" target="_blank"&gt;Pegadaian.co.id&lt;/a&gt;&lt;/p&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.663127" elapsed="0.000997"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.664124" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;/div&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.664124" elapsed="0.000000"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.665122" level="INFO">${html} = &lt;!DOCTYPE html&gt; &lt;html&gt;&lt;head&gt; &lt;title&gt;Laporan Harga Emas Pegadaian&lt;/title&gt; &lt;style&gt; body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 10...</msg>
+<var>${html}</var>
+<arg>${html}</arg>
+<arg>&lt;/body&gt;&lt;/html&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.665122" elapsed="0.000000"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.666119" level="INFO">${html_path} = laporan_emas.html</msg>
+<var>${html_path}</var>
+<arg>laporan_emas.html</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.665122" elapsed="0.000997"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-12-16T14:07:14.667117" level="INFO" html="true">Created file '&lt;a href="file://C:\QA\My_Project\laporan_emas.html"&gt;C:\QA\My_Project\laporan_emas.html&lt;/a&gt;'.</msg>
+<arg>${html_path}</arg>
+<arg>${html}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.666119" elapsed="0.001996"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.669112" level="INFO">
+🌐 Laporan HTML berwarna dibuat: laporan_emas.html</msg>
+<arg>\n🌐 Laporan HTML berwarna dibuat: ${html_path}</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.668115" elapsed="0.000997"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-12-16T14:07:14.670108" level="INFO">Buka file tersebut di browser untuk melihat dengan warna</msg>
+<arg>Buka file tersebut di browser untuk melihat dengan warna</arg>
+<arg>console=True</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.669112" elapsed="0.001994"/>
+</kw>
+<arg>${all_data}</arg>
+<status status="PASS" start="2025-12-16T14:07:14.385449" elapsed="0.285657"/>
+</kw>
+<kw name="Close All Browsers" owner="RPA.Browser.Selenium" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-12-16T14:07:14.671106" elapsed="6.416879"/>
+</kw>
+<status status="PASS" start="2025-12-16T14:07:06.481176" elapsed="14.607808"/>
 </test>
-<status status="PASS" start="2025-12-09T17:43:19.566133" elapsed="11.614703"/>
+<status status="PASS" start="2025-12-16T14:07:05.718189" elapsed="15.389351"/>
+</suite>
+<status status="PASS" start="2025-12-16T14:07:05.673051" elapsed="15.445453"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">login</stat>
 </tag>
 <suite>
-<stat name="Scheduled_Test_20251209_174318" id="s1" pass="1" fail="0" skip="0">Scheduled_Test_20251209_174318</stat>
+<stat name="My Project" id="s1" pass="1" fail="0" skip="0">My Project</stat>
+<stat name="Scraping" id="s1-s1" pass="1" fail="0" skip="0">My Project.Scraping</stat>
 </suite>
 </statistics>
 <errors>
