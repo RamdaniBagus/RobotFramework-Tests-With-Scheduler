@@ -1,1 +1,282 @@
-<!DOCTYPE html> <html><head> <title>Laporan Harga Emas Pegadaian</title> <style> body { font-family: Arial, sans-serif; margin: 20px; } h2 { color: #333; } table { border-collapse: collapse; width: 100%; margin-top: 20px; } th, td { border: 1px solid #ddd; padding: 12px; text-align: left; } th { background-color: #4CAF50; color: white; } tr:nth-child(even) { background-color: #f2f2f2; } .naik { color: green; font-weight: bold; } .turun { color: red; font-weight: bold; } .stabil { color: black; } .timestamp { font-size: 12px; color: #666; margin-top: 20px; } </style></head><body> <h2>📊 Laporan Harga Emas Pegadaian</h2> <table> <tr> <th>Tanggal</th> <th>Harga Beli</th> <th>Perubahan Beli</th> <th>Harga Jual</th> <th>Perubahan Jual</th> </tr> <tr style="background-color: #e8f5e8;"> <td>2025-12-16 14:07:06</td> <td>Rp 23.200,00/ 0,01 gr</td> <td class="stabil">-</td> <td>Rp 24.050,00/ 0,01 gr</td> <td class="stabil">-</td> </tr> <tr > <td>2025-12-16 14:05:34</td> <td>Rp 23.200,00/ 0,01 gr</td> <td class="turun">▼</td> <td>Rp 24.050,00/ 0,01 gr</td> <td class="turun">▼</td> </tr> <tr > <td>2025-12-16 11:35:10</td> <td>Rp 23.250,00/ 0,01 gr</td> <td class="stabil">-</td> <td>Rp 24.100,00/ 0,01 gr</td> <td class="stabil">-</td> </tr> <tr > <td>2025-12-16 11:25:16</td> <td>Rp 23.250,00/ 0,01 gr</td> <td class="stabil">-</td> <td>Rp 24.100,00/ 0,01 gr</td> <td class="stabil">-</td> </tr> <tr > <td>2025-12-16 11:24:15</td> <td>Rp 23.250,00/ 0,01 gr</td> <td class="stabil">-</td> <td>Rp 24.100,00/ 0,01 gr</td> <td class="stabil">-</td> </tr> <tr > <td>2025-12-16 11:16:13</td> <td>Rp 23.250,00/ 0,01 gr</td> <td class="stabil">-</td> <td>Rp 24.100,00/ 0,01 gr</td> <td class="stabil">-</td> </tr> <tr > <td>2025-12-16 11:15:09</td> <td>Rp 23.250,00/ 0,01 gr</td> <td class="stabil">-</td> <td>Rp 24.100,00/ 0,01 gr</td> <td class="stabil">-</td> </tr> <tr > <td>2025-12-16 10:49:27</td> <td>Rp 23.250,00/ 0,01 gr</td> <td class="naik">▲</td> <td>Rp 24.100,00/ 0,01 gr</td> <td class="naik">▲</td> </tr> <tr > <td>2025-12-15 17:51:35</td> <td>Rp 23.200,00/ 0,01 gr</td> <td class="stabil">-</td> <td>Rp 24.050,00/ 0,01 gr</td> <td class="stabil">-</td> </tr> <tr > <td>2025-12-15 14:54:27</td> <td>Rp 23.200,00/ 0,01 gr</td> <td class="stabil">-</td> <td>Rp 24.050,00/ 0,01 gr</td> <td class="stabil">-</td> </tr> <tr > <td>2025-12-15 13:49:36</td> <td>Rp 23.200,00/ 0,01 gr</td> <td class="stabil">-</td> <td>Rp 24.050,00/ 0,01 gr</td> <td class="stabil">-</td> </tr> <tr > <td>2025-12-15 12:51:25</td> <td>Rp 23.200,00/ 0,01 gr</td> <td class="stabil">-</td> <td>Rp 24.050,00/ 0,01 gr</td> <td class="stabil">-</td> </tr> </table> <div style="margin-top: 30px;"> <h3>Keterangan:</h3> <ul> <li><span class="naik">▲</span> = Harga Naik</li> <li><span class="turun">▼</span> = Harga Turun</li> <li><span class="stabil">-</span> = Harga Stabil/Tidak ada data sebelumnya</li> </ul> </div> <div class="timestamp"> <p>Laporan dibuat pada: 2025-12-16 14:07:14</p> <p>Sumber data: <a href="https://www.pegadaian.co.id" target="_blank">Pegadaian.co.id</a></p> </div> </body></html>
+<!DOCTYPE html><html><head><title>Laporan Harga Emas Pegadaian</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><script src="https://cdn.jsdelivr.net/npm/chart.js"></script><style>body { font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5; }.container { max-width: 1200px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }h1 { color: #2c3e50; text-align: center; }h2 { color: #34495e; }.current-prices { display: flex; gap: 20px; margin: 20px 0; flex-wrap: wrap; }.price-card { flex: 1; min-width: 200px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; text-align: center; background: white; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }.price { font-size: 28px; font-weight: bold; color: #2c3e50; margin: 10px 0; }.change { font-size: 24px; margin-top: 10px; }.naik { color: green; }.turun { color: red; }.stabil { color: gray; }.stats { display: flex; gap: 20px; margin: 20px 0; flex-wrap: wrap; }.stat-item { flex: 1; min-width: 250px; padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: center; border: 1px solid #ddd; }.stat-value { font-size: 32px; font-weight: bold; color: #2c3e50; margin: 10px 0; }.stat-label { color: #666; font-size: 16px; }.chart-container {margin: 30px 0;padding: 25px;border: 1px solid #e5e7eb;border-radius: 12px;background: white;box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);position: relative;}width: 100% !important;height: 500px !important;}.chart-loading {position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);color: #6b7280;font-size: 16px;}.chart-error {background: #fee2e2;color: #dc2626;padding: 16px;border-radius: 8px;text-align: center;margin: 10px 0;border: 1px solid #fca5a5;font-size: 14px;}table { width: 100%; border-collapse: collapse; margin-top: 30px; }th, td { border: 1px solid #ddd; padding: 12px; text-align: center; }th { background: #4CAF50; color: white; font-weight: bold; }tr:nth-child(even) { background: #f9f9f9; }tr:hover { background: #f1f1f1; }.footer { margin-top: 30px; padding-top: 20px; border-top: 1px solid #ddd; text-align: center; color: #666; font-size: 14px; }.logo { text-align: center; margin-bottom: 20px; }.logo img { max-height: 60px; }</style></head><body><div class="container"><div class="logo"><h1>📊 Laporan Harga Emas Pegadaian</h1></div><h2>💰 Harga Saat Ini</h2><div class="current-prices"><div class="price-card"><h3>Harga Beli</h3><div class="price">Rp 23.330,00/ 0,01 gr</div><div class="change stabil">-</div></div><div class="price-card"><h3>Harga Jual</h3><div class="price">Rp 24.180,00/ 0,01 gr</div><div class="change stabil">-</div></div></div><h2>📈 Statistik</h2><div class="stats"><div class="stat-item"><div class="stat-value">23250.80</div><div class="stat-label">Rata-rata Beli</div></div><div class="stat-item"><div class="stat-value">24100.80</div><div class="stat-label">Rata-rata Jual</div></div></div><h2>📊 Grafik Perkembangan Harga</h2><div class="chart-container"><canvas id="priceChart"></canvas><div id="chartLoading" class="chart-loading">Memuat grafik...</div><div id="chartError" class="chart-error" style="display: none;"></div></div><h2>📋 Data Historis</h2><table id="dataTable"><thead><tr><th>No</th><th>Tanggal & Waktu</th><th>Harga Beli</th><th>Perubahan</th><th>Harga Jual</th><th>Perubahan</th></tr></thead><tbody><tr><td>1</td><td>2025-12-19 14:59:13</td><td>Rp 23.330,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.180,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>2</td><td>2025-12-19 14:54:33</td><td>Rp 23.330,00/ 0,01 gr</td><td class="turun"><strong>▼</strong></td><td>Rp 24.180,00/ 0,01 gr</td><td class="turun"><strong>▼</strong></td></tr><tr><td>3</td><td>2025-12-18 14:13:46</td><td>Rp 23.380,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.230,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>4</td><td>2025-12-18 13:50:18</td><td>Rp 23.380,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.230,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>5</td><td>2025-12-18 13:48:13</td><td>Rp 23.380,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.230,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>6</td><td>2025-12-18 13:45:53</td><td>Rp 23.380,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.230,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>7</td><td>2025-12-18 13:45:50</td><td>Rp 23.380,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.230,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>8</td><td>2025-12-18 13:42:40</td><td>Rp 23.380,00/ 0,01 gr</td><td class="naik"><strong>▲</strong></td><td>Rp 24.230,00/ 0,01 gr</td><td class="naik"><strong>▲</strong></td></tr><tr><td>9</td><td>2025-12-18 11:49:33</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>10</td><td>2025-12-17 17:47:41</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>11</td><td>2025-12-17 17:06:24</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>12</td><td>2025-12-17 17:01:26</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>13</td><td>2025-12-17 16:51:09</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>14</td><td>2025-12-17 16:41:07</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>15</td><td>2025-12-17 16:18:21</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>16</td><td>2025-12-17 16:06:50</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>17</td><td>2025-12-17 15:58:41</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>18</td><td>2025-12-17 15:49:15</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>19</td><td>2025-12-17 15:42:13</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>20</td><td>2025-12-17 15:28:51</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>21</td><td>2025-12-17 14:58:09</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>22</td><td>2025-12-17 14:25:46</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>23</td><td>2025-12-17 14:20:11</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>24</td><td>2025-12-17 13:38:17</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>25</td><td>2025-12-17 13:35:29</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>26</td><td>2025-12-17 13:31:38</td><td>Rp 23.250,00/ 0,01 gr</td><td class="naik"><strong>▲</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="naik"><strong>▲</strong></td></tr><tr><td>27</td><td>2025-12-17 10:55:30</td><td>Rp 23.200,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.050,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>28</td><td>2025-12-16 18:11:49</td><td>Rp 23.200,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.050,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>29</td><td>2025-12-16 15:58:32</td><td>Rp 23.200,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.050,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>30</td><td>2025-12-16 15:56:46</td><td>Rp 23.200,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.050,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>31</td><td>2025-12-16 15:55:52</td><td>Rp 23.200,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.050,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>32</td><td>2025-12-16 15:50:56</td><td>Rp 23.200,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.050,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>33</td><td>2025-12-16 15:33:22</td><td>Rp 23.200,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.050,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>34</td><td>2025-12-16 15:28:11</td><td>Rp 23.200,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.050,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>35</td><td>2025-12-16 15:28:08</td><td>Rp 23.200,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.050,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>36</td><td>2025-12-16 15:23:37</td><td>Rp 23.200,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.050,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>37</td><td>2025-12-16 15:17:12</td><td>Rp 23.200,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.050,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>38</td><td>2025-12-16 15:12:27</td><td>Rp 23.200,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.050,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>39</td><td>2025-12-16 14:07:06</td><td>Rp 23.200,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.050,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>40</td><td>2025-12-16 14:05:34</td><td>Rp 23.200,00/ 0,01 gr</td><td class="turun"><strong>▼</strong></td><td>Rp 24.050,00/ 0,01 gr</td><td class="turun"><strong>▼</strong></td></tr><tr><td>41</td><td>2025-12-16 11:35:10</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>42</td><td>2025-12-16 11:25:16</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>43</td><td>2025-12-16 11:24:15</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>44</td><td>2025-12-16 11:16:13</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>45</td><td>2025-12-16 11:15:09</td><td>Rp 23.250,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>46</td><td>2025-12-16 10:49:27</td><td>Rp 23.250,00/ 0,01 gr</td><td class="naik"><strong>▲</strong></td><td>Rp 24.100,00/ 0,01 gr</td><td class="naik"><strong>▲</strong></td></tr><tr><td>47</td><td>2025-12-15 17:51:35</td><td>Rp 23.200,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.050,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>48</td><td>2025-12-15 14:54:27</td><td>Rp 23.200,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.050,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>49</td><td>2025-12-15 13:49:36</td><td>Rp 23.200,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.050,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr><tr><td>50</td><td>2025-12-15 12:51:25</td><td>Rp 23.200,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td><td>Rp 24.050,00/ 0,01 gr</td><td class="stabil"><strong>-</strong></td></tr></tbody></table><div class="footer"><p><strong>Laporan dibuat:</strong> 2025-12-19 14:59:22</p><p><strong>Sumber data:</strong> <a href="https://www.pegadaian.co.id" target="_blank">Pegadaian.co.id</a></p><p><strong>Total Data:</strong> 51 records</p></div></div><script>
+// Data untuk chart
+const chartLabels = ["17:47","11:49","13:42","13:45","13:45","13:48","13:50","14:13","14:54","14:59"];
+const chartBeliData = [23250.0,23250.0,23380.0,23380.0,23380.0,23380.0,23380.0,23380.0,23330.0,23330.0];
+const chartJualData = [24100.0,24100.0,24230.0,24230.0,24230.0,24230.0,24230.0,24230.0,24180.0,24180.0];
+
+console.log('=== CHART DATA DEBUG ===');
+console.log('Chart Labels:', chartLabels);
+console.log('Chart Beli Data:', chartBeliData);
+console.log('Chart Jual Data:', chartJualData);
+
+// Fungsi untuk membuat chart yang lebih baik
+function createPriceChart() {
+console.log('Creating enhanced chart...');
+
+// Sembunyikan loading message
+const loadingDiv = document.getElementById('chartLoading');
+if (loadingDiv) loadingDiv.style.display = 'none';
+
+const canvas = document.getElementById('priceChart');
+if (!canvas) {
+console.error('Canvas element not found!');
+showChartError('Canvas tidak ditemukan');
+return;
+}
+
+// Set ukuran canvas yang lebih besar
+canvas.style.width = '100%';
+canvas.style.height = '500px';
+
+const ctx = canvas.getContext('2d');
+if (!ctx) {
+console.error('Cannot get 2D context');
+showChartError('Konteks canvas tidak tersedia');
+return;
+}
+
+// Hapus chart lama jika ada
+if (window.myChart && typeof window.myChart.destroy === 'function') {
+window.myChart.destroy();
+}
+
+try {
+// Gradient untuk background
+const gradientBeli = ctx.createLinearGradient(0, 0, 0, 400);
+gradientBeli.addColorStop(0, 'rgba(59, 130, 246, 0.3)');
+gradientBeli.addColorStop(1, 'rgba(59, 130, 246, 0.05)');
+
+const gradientJual = ctx.createLinearGradient(0, 0, 0, 400);
+gradientJual.addColorStop(0, 'rgba(239, 68, 68, 0.3)');
+gradientJual.addColorStop(1, 'rgba(239, 68, 68, 0.05)');
+
+window.myChart = new Chart(ctx, {
+type: 'line',
+data: {
+labels: chartLabels,
+datasets: [
+{
+label: 'Harga Beli',
+data: chartBeliData,
+borderColor: '#3b82f6',
+backgroundColor: gradientBeli,
+borderWidth: 3,
+fill: true,
+tension: 0.4,
+pointRadius: 6,
+pointBackgroundColor: '#3b82f6',
+pointBorderColor: '#ffffff',
+pointBorderWidth: 2,
+pointHoverRadius: 8,
+pointHoverBackgroundColor: '#1d4ed8',
+pointHoverBorderColor: '#ffffff',
+pointHoverBorderWidth: 3
+},
+{
+label: 'Harga Jual',
+data: chartJualData,
+borderColor: '#ef4444',
+backgroundColor: gradientJual,
+borderWidth: 3,
+fill: true,
+tension: 0.4,
+pointRadius: 6,
+pointBackgroundColor: '#ef4444',
+pointBorderColor: '#ffffff',
+pointBorderWidth: 2,
+pointHoverRadius: 8,
+pointHoverBackgroundColor: '#dc2626',
+pointHoverBorderColor: '#ffffff',
+pointHoverBorderWidth: 3
+}
+]
+},
+options: {
+responsive: true,
+maintainAspectRatio: false,
+interaction: {
+mode: 'index',
+intersect: false
+},
+plugins: {
+title: {
+display: true,
+text: '📈 Perkembangan Harga Emas Pegadaian',
+font: {
+size: 20,
+weight: 'bold',
+family: 'Arial, sans-serif'
+},
+color: '#1f2937',
+padding: {
+top: 10,
+bottom: 30
+}
+},
+legend: {
+display: true,
+position: 'top',
+labels: {
+color: '#4b5563',
+font: {
+size: 14,
+weight: 'bold'
+},
+padding: 20,
+usePointStyle: true,
+pointStyle: 'circle'
+}
+},
+tooltip: {
+backgroundColor: 'rgba(31, 41, 55, 0.9)',
+titleColor: '#f9fafb',
+bodyColor: '#f9fafb',
+titleFont: {
+size: 14,
+weight: 'bold'
+},
+bodyFont: {
+size: 14
+},
+padding: 12,
+cornerRadius: 8,
+displayColors: false,
+callbacks: {
+label: function(context) {
+let label = context.dataset.label || '';
+const value = context.parsed.y;
+const icon = context.dataset.label === 'Harga Beli' ? String.fromCodePoint(0x1F4B0) : String.fromCodePoint(0x1F4B5);
+return icon + ' ' + label + ': Rp ' + value.toLocaleString('id-ID');
+},
+title: function(tooltipItems) {
+return String.fromCodePoint(0x23F0) + ' Waktu: ' + tooltipItems[0].label;
+}
+}
+}
+},
+scales: {
+y: {
+beginAtZero: false,
+grid: {
+color: 'rgba(209, 213, 219, 0.3)',
+drawBorder: false
+},
+ticks: {
+color: '#6b7280',
+font: {
+size: 12,
+weight: 'bold'
+},
+padding: 10,
+callback: function(value) {
+return 'Rp ' + value.toLocaleString('id-ID');
+}
+},
+title: {
+display: true,
+text: String.fromCodePoint(0x1F4B0) + ' Harga (Rupiah)',
+color: '#4b5563',
+font: {
+size: 14,
+weight: 'bold'
+},
+padding: {
+top: 10,
+bottom: 10
+}
+}
+},
+x: {
+grid: {
+color: 'rgba(209, 213, 219, 0.2)',
+drawBorder: false
+},
+ticks: {
+color: '#6b7280',
+font: {
+size: 11,
+weight: 'bold'
+},
+maxRotation: 45,
+minRotation: 45,
+padding: 10,
+callback: function(value, index) {
+// Format label waktu dengan lebih baik
+const label = chartLabels[index];
+return label || value;
+}
+},
+title: {
+display: true,
+text: String.fromCodePoint(0x23F0) + ' Waktu',
+color: '#4b5563',
+font: {
+size: 14,
+weight: 'bold'
+},
+padding: {
+top: 10,
+bottom: 10
+}
+}
+}
+},
+elements: {
+line: {
+tension: 0.4
+}
+},
+animations: {
+tension: {
+duration: 1000,
+easing: 'linear'
+}
+}
+}
+});
+
+console.log('✅ Enhanced chart created successfully!');
+hideChartError();
+
+} catch (error) {
+console.error('Error creating chart:', error);
+showChartError('Gagal membuat grafik: ' + error.message);
+}
+}
+
+// Fungsi untuk menampilkan pesan error
+function showChartError(message) {
+const errorDiv = document.getElementById('chartError');
+if (errorDiv) {
+errorDiv.innerHTML = '<strong>⚠️ Error:</strong> ' + message;
+errorDiv.style.display = 'block';
+}
+}
+
+// Fungsi untuk menyembunyikan error
+function hideChartError() {
+const errorDiv = document.getElementById('chartError');
+if (errorDiv) {
+errorDiv.style.display = 'none';
+}
+}
+
+// Inisialisasi chart
+function initializeChart() {
+if (typeof Chart === 'undefined') {
+console.log('Chart.js belum dimuat, menunggu...');
+setTimeout(initializeChart, 100);
+return;
+}
+
+console.log('Chart.js siap, membuat chart...');
+if (document.readyState === 'loading') {
+document.addEventListener('DOMContentLoaded', createPriceChart);
+} else {
+createPriceChart();
+}
+}
+
+// Mulai inisialisasi
+initializeChart();
+</script></body></html>
