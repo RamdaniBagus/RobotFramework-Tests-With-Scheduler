@@ -5,6 +5,7 @@
 
 <h3>Run : Scraping.robot and open laporan_emas.html </h3>
 
+<img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/9a4f9a9d-858f-45fa-b14a-a9cdd9f23bd1" />
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/9e7b2da6-7b14-4d0c-9204-dc02c3578e8a" />
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/597bb463-9f8f-423f-a96c-41bcb688374b" />
 <img width="500" height="500" alt="image" src="https://github.com/user-attachments/assets/199f9738-a5c9-478c-ac4e-6289c2cb5cc8" />
